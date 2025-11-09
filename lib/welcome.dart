@@ -8,12 +8,14 @@ class Welcome extends StatelessWidget {
     return Scaffold(
       body: Align(
         alignment: Alignment.center,
-        child: Text(
-          "welcome to main page",
-          style: TextStyle(
-            fontFamily: "Times New Roman",
-            fontSize: 30,
-            fontWeight: FontWeight.w800,
+        child: SizedBox(
+          width: 300,
+          height: 200,
+          child: Container(
+            padding: EdgeInsets.all(20),
+            alignment: Alignment.center,
+            color: Colors.lightBlueAccent,
+            child: Image.asset("assets/icon.png"),
           ),
         ),
       ),

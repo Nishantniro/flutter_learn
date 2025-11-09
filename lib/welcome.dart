@@ -8,10 +8,13 @@ class Welcome extends StatelessWidget {
     return Scaffold(
       body: Align(
         alignment: Alignment.center,
-        child: SizedBox(
-          width: 300,
-          height: 200,
+        child: Container(
+          color: Colors.amber,
+          width: double.maxFinite,
+
+          height: double.maxFinite,
           child: Container(
+            margin: EdgeInsets.all(30),
             padding: EdgeInsets.all(20),
             alignment: Alignment.center,
             color: Colors.lightBlueAccent,

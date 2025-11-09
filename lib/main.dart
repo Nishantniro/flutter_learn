@@ -1,7 +1,15 @@
+import 'package:day1/welcome.dart';
+import 'package:flutter/material.dart';
+
 void main() {
-  sum(b: 2, a: 1, c: 3);
+  runApp(const MyApp());
 }
 
-int sum({a, b, c}) {
-  return a + b + c;
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(title: "flutter practice", home: Welcome());
+  }
 }

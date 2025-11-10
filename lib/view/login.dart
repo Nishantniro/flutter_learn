@@ -1,3 +1,4 @@
+import 'package:day1/constant.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -16,6 +17,31 @@ class Login extends StatelessWidget {
           Text(
             "sign in to continue",
             style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+          ),
+          SizedBox(height: 20),
+          Form(
+            child: Column(
+              children: [
+                TextFormField(decoration: InputDecoration(hint: Text("Email"))),
+                SizedBox(height: 20),
+                TextFormField(
+                  obscureText: true,
+                  decoration: InputDecoration(hint: Text("password")),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: PRIMARY_COLOR,
+                  ),
+                  child: Text(
+                    "Login",
+                    style: TextStyle(fontFamily: "times new roman"),
+                  ),
+                ),
+                TextButton(onPressed: () {}, child: Text("Forgot Password?")),
+              ],
+            ),
           ),
         ],
       ),

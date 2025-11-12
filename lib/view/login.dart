@@ -129,6 +129,23 @@ class Login extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(height: 40),
+                  Text.rich(
+                    textAlign: TextAlign.center,
+
+                    TextSpan(
+                      text: "Don't have an account? ",
+                      children: [
+                        TextSpan(
+                          text: "Sign Up",
+                          style: TextStyle(
+                            color: PRIMARY_COLOR,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

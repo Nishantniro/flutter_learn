@@ -130,21 +130,21 @@ class Login extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 40),
-                  Text.rich(
-                    textAlign: TextAlign.center,
-
-                    TextSpan(
-                      text: "Don't have an account? ",
-                      children: [
-                        TextSpan(
-                          text: "Sign Up",
-                          style: TextStyle(
-                            color: PRIMARY_COLOR,
-                            fontWeight: FontWeight.w600,
-                          ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Don't have an account? ",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Sign Up",
+                          style: TextStyle(fontSize: 18, color: PRIMARY_COLOR),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ],
               ),

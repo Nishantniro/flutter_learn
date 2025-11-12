@@ -1,5 +1,6 @@
 import 'package:day1/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -104,15 +105,28 @@ class Login extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.facebook),
-                      SizedBox(width: 5),
-                      Icon(Icons.mail),
-                      SizedBox(width: 5),
-                      Icon(Icons.apple),
+                      SvgPicture.asset(
+                        'assets/google.svg', // Path to your SVG file
+                        width: 35, // Desired width for the icon
+                        height: 35, // Desired height for the icon
+                      ),
+                      // Icon(Icons.facebook),
+                      SizedBox(width: 20),
+                      SvgPicture.asset(
+                        'assets/facebook.svg', // Path to your SVG file
+                        width: 35, // Desired width for the icon
+                        height: 35, // Desired height for the icon
+                      ),
+                      SizedBox(width: 20),
+                      SvgPicture.asset(
+                        'assets/apple.svg', // Path to your SVG file
+                        width: 35, // Desired width for the icon
+                        height: 35, // Desired height for the icon
+                      ),
                     ],
                   ),
                 ],

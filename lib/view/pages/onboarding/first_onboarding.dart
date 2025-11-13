@@ -6,21 +6,19 @@ class FirstOnboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
-        mainAxisSize: MainAxisSize.min,
-
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            //padding: EdgeInsets.fromLTRB(50, 200, 50, 200),
-            child: Image.asset(
-              "assets/onboarding/onboarding_image.png",
-              //fit: BoxFit.cover,
-              height: 50,
-              width: 50,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        child: ListView(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 200, horizontal: 20),
+              child: Image.asset(
+                "assets/onboarding_image.png",
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

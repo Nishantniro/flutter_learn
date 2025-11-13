@@ -1,4 +1,5 @@
 import 'package:day1/constant.dart';
+import 'package:day1/view/pages/onboarding/first_onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,7 +19,12 @@ class Login extends StatelessWidget {
               //width: 30,
               //padding: EdgeInsets.only(right: 200),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FirstOnboarding()),
+                  );
+                },
                 icon: Icon(Icons.arrow_back, size: 30),
 
                 padding: EdgeInsets.only(right: 400),

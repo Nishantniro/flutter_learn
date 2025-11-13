@@ -1,4 +1,5 @@
-import 'package:day1/view/login.dart';
+//import 'package:day1/view/pages/auth/login.dart';
+import 'package:day1/view/pages/onboarding/first_onboarding.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "flutter practice",
-      home: Login(),
+      home: FirstOnboarding(),
     );
   }
 }

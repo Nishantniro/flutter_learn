@@ -92,7 +92,7 @@ class Register extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          "L O G I N",
+                          "S I G N  U P",
                           style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 25,
@@ -102,14 +102,7 @@ class Register extends StatelessWidget {
                     ),
                   ),
 
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Forgot Password?",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                  SizedBox(height: 5),
+                  SizedBox(height: 10),
                   Row(
                     children: [
                       Expanded(
@@ -121,9 +114,9 @@ class Register extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 10),
                   Text(
-                    "social media login",
+                    "social media Sign Up",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 20),
                   ),

@@ -1,10 +1,24 @@
 import 'package:day1/constant.dart';
+import 'package:day1/view/pages/auth/register.dart';
 import 'package:day1/view/pages/onboarding/first_onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool _passwordVisible = false;
+
+  void _togglePasswordVisibility() {
+    setState(() {
+      _passwordVisible = !_passwordVisible;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,10 +74,20 @@ class Login extends StatelessWidget {
                   ),
                   TextFormField(
                     style: TextStyle(fontSize: 20),
-                    obscureText: true,
+                    obscureText: _passwordVisible,
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.lock),
-                      suffixIcon: Icon(Icons.visibility_off),
+                      suffixIcon: Padding(
+                        padding: EdgeInsetsGeometry.fromLTRB(0, 0, 5, 0),
+                        child: GestureDetector(
+                          onTap: _togglePasswordVisibility,
+                          child: Icon(
+                            _passwordVisible
+                                ? Icons.visibility_rounded
+                                : Icons.visibility_off_rounded,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
 
@@ -151,7 +175,12 @@ class Login extends StatelessWidget {
                         style: TextStyle(fontSize: 18),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Register()),
+                          );
+                        },
                         child: Text(
                           "Sign Up",
                           style: TextStyle(fontSize: 18, color: PRIMARY_COLOR),

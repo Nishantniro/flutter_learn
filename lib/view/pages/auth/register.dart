@@ -1,10 +1,10 @@
 import 'package:day1/constant.dart';
-import 'package:day1/view/pages/onboarding/first_onboarding.dart';
+import 'package:day1/view/pages/auth/login.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class Register extends StatelessWidget {
+  const Register({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class Login extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => FirstOnboarding()),
+                    MaterialPageRoute(builder: (context) => Login()),
                   );
                 },
                 icon: Icon(Icons.arrow_back, size: 30),
@@ -32,12 +32,12 @@ class Login extends StatelessWidget {
             ),
 
             Text(
-              "welcome!",
+              "Hi!",
               style: TextStyle(fontSize: 44, fontWeight: FontWeight.w800),
             ),
 
             Text(
-              "sign in to continue",
+              "Create a new account",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
             ),
             SizedBox(height: 50),
@@ -45,6 +45,15 @@ class Login extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  Text(
+                    "Name",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                  ),
+                  TextFormField(
+                    style: TextStyle(fontSize: 20),
+                    decoration: InputDecoration(prefixIcon: Icon(Icons.person)),
+                  ),
+                  SizedBox(height: 50),
                   Text(
                     "Email",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
@@ -147,13 +156,18 @@ class Login extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don't have an account? ",
+                        "Already have an account? ",
                         style: TextStyle(fontSize: 18),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Login()),
+                          );
+                        },
                         child: Text(
-                          "Sign Up",
+                          "Sign in",
                           style: TextStyle(fontSize: 18, color: PRIMARY_COLOR),
                         ),
                       ),

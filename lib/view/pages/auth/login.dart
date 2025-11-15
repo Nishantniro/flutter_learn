@@ -22,6 +22,16 @@ class _LoginState extends State<Login> {
   );
   TextEditingController passwordController = TextEditingController();
 
+  final GlobalKey<FormState> formkey = GlobalKey();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+
+    super.dispose();
+  }
+
   void _togglePasswordVisibility() {
     setState(() {
       _passwordVisible = !_passwordVisible;
@@ -64,6 +74,7 @@ class _LoginState extends State<Login> {
             ),
             SizedBox(height: 50),
             Form(
+              key: formkey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [

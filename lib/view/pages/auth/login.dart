@@ -17,9 +17,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   bool _passwordVisible = false;
 
-  TextEditingController emailController = TextEditingController(
-    text: "demo mail",
-  );
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   final GlobalKey<FormState> formkey = GlobalKey();
@@ -32,11 +30,11 @@ class _LoginState extends State<Login> {
     super.dispose();
   }
 
-  void _togglePasswordVisibility() {
-    setState(() {
-      _passwordVisible = !_passwordVisible;
-    });
-  }
+  // void _togglePasswordVisibility() {
+  //   setState(() {
+  //     _passwordVisible = !_passwordVisible;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -83,6 +81,7 @@ class _LoginState extends State<Login> {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                   ),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     style: TextStyle(fontSize: 20),
                     decoration: InputDecoration(prefixIcon: Icon(Icons.email)),
 
@@ -94,6 +93,12 @@ class _LoginState extends State<Login> {
                     onFieldSubmitted: (value) {
                       log("called from on field submitted $value");
                     },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "this cannot be empty";
+                      }
+                      return null;
+                    },
                   ),
                   SizedBox(height: 50),
                   Text(
@@ -101,16 +106,21 @@ class _LoginState extends State<Login> {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                   ),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     style: TextStyle(fontSize: 20),
-                    obscureText: !_passwordVisible,
+                    obscureText: _passwordVisible,
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.lock),
                       suffixIcon: Padding(
                         padding: EdgeInsetsGeometry.fromLTRB(0, 0, 5, 0),
-                        child: GestureDetector(
-                          onTap: _togglePasswordVisibility,
-                          child: Icon(
-                            _passwordVisible
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _passwordVisible = !_passwordVisible;
+                            });
+                          }, // _togglePasswordVisibility,
+                          icon: Icon(
+                            _passwordVisible == true
                                 ? Icons.visibility_rounded
                                 : Icons.visibility_off_rounded,
                           ),
@@ -119,6 +129,12 @@ class _LoginState extends State<Login> {
                     ),
                     controller: passwordController,
                     obscuringCharacter: "*",
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "invalid password";
+                      }
+                      return null;
+                    },
                   ),
 
                   SizedBox(height: 40),

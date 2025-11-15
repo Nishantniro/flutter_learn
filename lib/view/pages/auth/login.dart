@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
+
 import 'package:day1/constant.dart';
 import 'package:day1/view/pages/auth/register.dart';
 import 'package:day1/view/pages/onboarding/first_onboarding.dart';
@@ -66,6 +68,15 @@ class _LoginState extends State<Login> {
                   TextFormField(
                     style: TextStyle(fontSize: 20),
                     decoration: InputDecoration(prefixIcon: Icon(Icons.email)),
+
+                    controller: TextEditingController(),
+                    onChanged: (value) {
+                      log(value);
+                    },
+                    onSaved: (newValue) => log(newValue ?? "j"),
+                    onFieldSubmitted: (value) {
+                      log("called from on field submitted $value");
+                    },
                   ),
                   SizedBox(height: 50),
                   Text(
@@ -89,6 +100,7 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
+                    obscuringCharacter: "*",
                   ),
 
                   SizedBox(height: 40),

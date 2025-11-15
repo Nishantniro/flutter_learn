@@ -1,10 +1,11 @@
-import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
+//import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
 
 import 'package:day1/constant.dart';
 import 'package:day1/view/pages/auth/register.dart';
 import 'package:day1/view/pages/onboarding/first_onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'dart:developer';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -15,6 +16,11 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool _passwordVisible = false;
+
+  TextEditingController emailController = TextEditingController(
+    text: "demo mail",
+  );
+  TextEditingController passwordController = TextEditingController();
 
   void _togglePasswordVisibility() {
     setState(() {
@@ -69,7 +75,7 @@ class _LoginState extends State<Login> {
                     style: TextStyle(fontSize: 20),
                     decoration: InputDecoration(prefixIcon: Icon(Icons.email)),
 
-                    controller: TextEditingController(),
+                    controller: emailController,
                     onChanged: (value) {
                       log(value);
                     },
@@ -85,7 +91,7 @@ class _LoginState extends State<Login> {
                   ),
                   TextFormField(
                     style: TextStyle(fontSize: 20),
-                    obscureText: _passwordVisible,
+                    obscureText: !_passwordVisible,
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.lock),
                       suffixIcon: Padding(
@@ -100,6 +106,7 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
+                    controller: passwordController,
                     obscuringCharacter: "*",
                   ),
 

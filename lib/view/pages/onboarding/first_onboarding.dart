@@ -2,6 +2,8 @@ import 'package:day1/constant.dart';
 import 'package:day1/view/pages/auth/login.dart';
 import 'package:flutter/material.dart';
 
+void initState() {}
+
 class FirstOnboarding extends StatelessWidget {
   const FirstOnboarding({super.key});
 
